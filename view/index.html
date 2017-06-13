@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/angular.min.js"> charset="utf-8"</script>
+    <script src="scripts/Script.js" charset="utf-8"></script>
+    <title></title>
+  </head>
+
+  <body ng-app="omegaApp">
+    <div ng-controller="OmegaController as oc" class="container">
+      <header class="row">
+        <h1 class="text-center">Omegabytes</h1>
+      </header>
+      <div class="row text-center">
+        <p>Select your favorite omegabyte!</p>
+        <form ng-submit="oc.selectStudent()">
+          <select ng-model="oc.selectedName" ng-options="student for student in oc.omega"></select>
+          <button type="submit" name="button">Select</button>
+        </form>
+      </div>
+
+      <table>
+        <tr ng-repeat="x in oc.newStuds">
+          <td ng-class="{'highlighted': x.highlighted}" >{{ x.name }}</td>
+          <td ng-class="{'highlighted': x.highlighted}" >{{ x.school }}</td>
+        </tr>
+      </table>
+
+    </div>
+  </body>
+</html>
